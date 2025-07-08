@@ -25,7 +25,8 @@
 
 <body class="bg-gray-100 text-gray-800">
     <!-- Header -->
-    <header class="bg-charcoal text-cream shadow-lg">
+    <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-charcoal text-cream shadow-lg transition-transform duration-300">
+
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-muted-gold">🎵 Harmony Music</div>
             <div class="hidden md:flex space-x-6">
@@ -503,6 +504,24 @@
             <p class="text-sm mt-2">&copy; 2025 Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script>
+    let lastScroll = 0;
+    const header = document.getElementById('mainHeader');
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            // Scroll hacia abajo: ocultar el header
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            // Scroll hacia arriba: mostrar el header
+            header.style.transform = 'translateY(0)';
+        }
+
+        lastScroll = currentScroll;
+    });
+</script>
     <!-- JS para filtros -->
     <script src="/static/js/producto.js"></script>
 </body>
