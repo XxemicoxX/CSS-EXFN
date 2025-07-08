@@ -1,3 +1,6 @@
+const form = document.getElementById("formContacto");
+const modal = document.getElementById("modalGracias");
+
 function checkAuth() {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     if (!isLoggedIn) {
@@ -20,37 +23,7 @@ const products = {
     'Guitarra Acústica': { price: 299.99, category: 'instrumentos' },
     'Teclado Digital': { price: 199.99, category: 'instrumentos' },
     'Amplificador': { price: 79.99, category: 'accesorios' },
-    'Micrófono': { price: 149.99, category: 'accesorios' },
-    'Guitarra Fender Stratocaster': { price: 499.99, category: 'instrumentos' },
-    'Teclado Yamaha PSR-E373': { price: 299.99, category: 'instrumentos' },
-    'Batería Acústica Pearl Roadshow': { price: 699.99, category: 'instrumentos' },
-    'Guitarra Ibanez RG450DX': { price: 549.99, category: 'instrumentos' },
-    'Teclado Casio CT-X700': { price: 199.99, category: 'instrumentos' },
-    'Batería Alesis Nitro Mesh': { price: 399.99, category: 'instrumentos' },
-    'Saxofón Jean Paul AS-400': { price: 699.99, category: 'instrumentos' },
-    'Trompeta Bach TR300H2': { price: 499.99, category: 'instrumentos' },
-    'Guitarra Acústica Yamaha F310': { price: 159.99, category: 'instrumentos' },
-    'Bajo Fender Jazz Bass': { price: 749.99, category: 'instrumentos' },
-    'Teclado Roland GO:KEYS': { price: 319.99, category: 'instrumentos' },
-    'Batería Tama Imperialstar': { price: 799.99, category: 'instrumentos' },
-    'Flauta Yamaha YFL-222': { price: 549.99, category: 'instrumentos' },
-    'Clarinete Cecilio MCT': { price: 179.99, category: 'instrumentos' },
-    'Teclado Kawai ES110': { price: 649.99, category: 'instrumentos' },
-    'Guitarra Acústica Fender CD-60S': { price: 199.99, category: 'instrumentos' },
-    'Batería Acústica Ludwig Accent': { price: 589.99, category: 'instrumentos' },
-    'Piano Digital Casio Privia PX-160': { price: 499.99, category: 'instrumentos' },
-    'Trompeta Yamaha YTR-2330': { price: 599.99, category: 'instrumentos' },
-    'Guitarra Eléctrica Epiphone Les Paul': { price: 429.99, category: 'instrumentos' },
-    'Cajón Flamenco Meinl': { price: 129.99, category: 'instrumentos' },
-    'Ukelele Kala KA-15S': { price: 69.99, category: 'instrumentos' },
-    'Batería Digital Roland TD-1K': { price: 599.99, category: 'instrumentos' },
-    'Teclado Yamaha NP-32': { price: 299.99, category: 'instrumentos' },
-    'Saxofón Tenor Mendini MTS-L': { price: 529.99, category: 'instrumentos' },
-    'Guitarra Cort CR250': { price: 399.99, category: 'instrumentos' },
-    'Piano Digital Yamaha P-45': { price: 479.99, category: 'instrumentos' },
-    'Guitarra Acústica Takamine GD20': { price: 349.99, category: 'instrumentos' },
-    'Batería Acústica Mapex Tornado': { price: 449.99, category: 'instrumentos' },
-    'Teclado Medeli MK401': { price: 229.99, category: 'instrumentos' }
+    'Micrófono': { price: 149.99, category: 'accesorios' }
 };
 
 function loadCartFromStorage() {
@@ -66,29 +39,25 @@ function saveCartToStorage() {
 
 function addToCart(productName, category) {
     const product = products[productName];
-    if (!product) {
-        showNotification('Producto no encontrado', 'error');
-        return;
-    }
+    if (!product) return;
 
     const existingItem = cart.find(item => item.name === productName);
 
     if (existingItem) {
         existingItem.quantity += 1;
-        showNotification(`${productName} agregado al carrito (${existingItem.quantity})`, 'success');
     } else {
         cart.push({
             name: productName,
-            category: category || product.category,
+            category: category,
             price: product.price,
             quantity: 1
         });
-        showNotification(`${productName} agregado al carrito!`, 'success');
     }
 
     saveCartToStorage();
     updateCartCounter();
     updateCartDisplay();
+
 }
 
 function removeFromCart(productName) {
@@ -231,7 +200,7 @@ function addToCartAndNavigate(productName, category) {
         'Guitarra Acústica': { price: 299.99, category: 'instrumentos' },
         'Teclado Digital': { price: 199.99, category: 'instrumentos' },
         'Amplificador': { price: 79.99, category: 'accesorios' },
-        'Micrófono': { price: 149.99, category: 'accesorios' },
+        'Micrófono': { price: 149.99, category: 'accesorios' }
     };
 
     let cart = JSON.parse(localStorage.getItem('harmonyCart') || '[]');
@@ -394,4 +363,14 @@ function emptyCart() {
     saveCartToStorage();
     updateCartCounter();
     updateCartDisplay();
+}
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    modal.classList.remove("hidden");
+    form.reset();
+});
+
+function cerrarModal() {
+    modal.classList.add("hidden");
 }

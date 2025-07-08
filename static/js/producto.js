@@ -133,3 +133,20 @@ document.getElementById('btnFinalizar').addEventListener('click', () => {
 document.getElementById('cerrarGracias').addEventListener('click', () => {
     document.getElementById('modalGracias').classList.add('hidden');
 });
+
+let lastScroll = 0;
+const header = document.getElementById('mainHeader');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        // Scroll hacia abajo: ocultar el header
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        // Scroll hacia arriba: mostrar el header
+        header.style.transform = 'translateY(0)';
+    }
+
+    lastScroll = currentScroll;
+});

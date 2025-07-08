@@ -24,7 +24,6 @@
 </head>
 
 <body class="bg-gray-100 text-gray-800">
-    <!-- Header/Navigation -->
     <header class="bg-charcoal text-cream shadow-lg">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
@@ -32,7 +31,6 @@
                     <div class="text-2xl font-bold text-muted-gold">🎵 Harmony Music</div>
                 </div>
 
-                <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-8">
                     <a href="index.html" class="text-cream hover:text-muted-gold transition-colors duration-300">Inicio</a>
                     <a href="instrumentos.html" class="text-cream hover:text-muted-gold transition-colors duration-300">Instrumentos</a>
@@ -41,10 +39,9 @@
                     <a href="contacto.html" class="text-cream hover:text-muted-gold transition-colors duration-300">Contacto</a>
                 </div>
 
-                <!-- User greeting or cart -->
                 <div class="hidden md:flex space-x-4">
                     <button
-                        class="bg-muted-gold hover:bg-yellow-600 text-charcoal px-4 py-2 rounded transition-colors duration-300 font-medium">
+                        onclick="toggleCart()" class="bg-muted-gold hover:bg-yellow-600 text-charcoal px-4 py-2 rounded transition-colors duration-300 font-medium">
                         🛒 Carrito (0)
                     </button>
                     <button onclick="logout()"
@@ -53,7 +50,6 @@
                     </button>
                 </div>
 
-                <!-- Mobile menu button -->
                 <button class="md:hidden text-cream" onclick="toggleMobileMenu()">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -62,7 +58,6 @@
                 </button>
             </div>
 
-            <!-- Mobile Navigation -->
             <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-4">
                 <a href="index.html" class="block text-cream hover:text-muted-gold transition-colors duration-300 py-2">Inicio</a>
                 <a href="instrumentos.html" class="block text-cream hover:text-muted-gold transition-colors duration-300 py-2">Instrumentos</a>
@@ -73,20 +68,53 @@
         </nav>
     </header>
 
-    <!-- Breadcrumb -->
-    <div class="bg-cream py-4">
-        <div class="container mx-auto px-4">
-            <nav class="text-sm">
-                <ol class="flex items-center space-x-2">
-                    <li><a href="index.html" class="text-muted-gold hover:text-soft-brown transition-colors duration-300">Inicio</a></li>
-                    <li class="text-gray-500">></li>
-                    <li class="text-charcoal font-medium">Política de Devoluciones</li>
-                </ol>
-            </nav>
+    <!--Cuerpo del carrito-->
+    <div id="cartSidebar"
+        class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex flex-col h-full">
+
+            <div class="bg-charcoal text-cream p-4 flex justify-between items-center">
+                <h3 class="text-lg font-bold">🛒 Mi Carrito</h3>
+                <button onclick="toggleCart()" class="text-cream hover:text-muted-gold">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!--Carrito-->
+            <div class="flex-1 overflow-y-auto p-4">
+                <div id="cartItems" class="space-y-3">
+
+                </div>
+
+                <div id="emptyCartMessage" class="text-center text-gray-500 py-8">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 9M7 13l-1.5 9m0 0h12"></path>
+                    </svg>
+                    <p>Tu carrito está vacío</p>
+                </div>
+            </div>
+
+            <div class="border-t p-4 bg-gray-50">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-bold">Total:</span>
+                    <span id="cartTotal" class="text-xl font-bold text-muted-gold">S/. 0.00</span>
+                </div>
+                <button
+                    class="w-full bg-charcoal hover:bg-slate-warm text-cream py-3 rounded-lg font-bold transition-colors duration-300"
+                    onclick="proceedToCheckout()">
+                    Proceder al Pago
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="toggleCart()"></div>
+
     <section class="bg-slate-warm text-cream py-16">
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-3xl mx-auto">
@@ -100,12 +128,10 @@
         </div>
     </section>
 
-    <!-- Main Content -->
     <main class="py-16">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
                 
-                <!-- Resumen de Política -->
                 <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
                     <div class="flex items-center mb-6">
                         <div class="bg-muted-gold/10 p-3 rounded-full mr-4">
@@ -131,7 +157,6 @@
                     </div>
                 </div>
 
-                <!-- Condiciones Generales -->
                 <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
                     <h2 class="text-2xl font-bold text-charcoal mb-6 flex items-center">
                         <svg class="w-6 h-6 mr-3 text-muted-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,7 +200,6 @@
                     </div>
                 </div>
 
-                <!-- Productos por Categoría -->
                 <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
                     <h2 class="text-2xl font-bold text-charcoal mb-6 flex items-center">
                         <svg class="w-6 h-6 mr-3 text-muted-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -229,7 +253,6 @@
                     </div>
                 </div>
 
-                <!-- Proceso de Devolución -->
                 <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
                     <h2 class="text-2xl font-bold text-charcoal mb-6 flex items-center">
                         <svg class="w-6 h-6 mr-3 text-muted-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -273,7 +296,6 @@
                     </div>
                 </div>
 
-                <!-- Excepciones -->
                 <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
                     <h2 class="text-xl font-bold text-red-800 mb-4 flex items-center">
                         <svg class="w-6 h-6 mr-3 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -301,7 +323,6 @@
                     </ul>
                 </div>
 
-                <!-- Contacto -->
                 <div class="bg-muted-gold/10 rounded-lg p-6">
                     <h2 class="text-xl font-bold text-charcoal mb-4">¿Necesitas ayuda?</h2>
                     <p class="text-gray-700 mb-4">
@@ -322,7 +343,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-gray-300 py-12">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8">
@@ -335,8 +355,8 @@
                     <ul class="space-y-2">
                         <li><a href="index.html" class="hover:text-muted-gold transition-colors duration-300">Inicio</a></li>
                         <li><a href="instrumentos.html" class="hover:text-muted-gold transition-colors duration-300">Instrumentos</a></li>
-                        <li><a href="accesorios-audio.html" class="hover:text-muted-gold transition-colors duration-300">Accesorios</a></li>
-                        <li><a href="accesorios-audio.html" class="hover:text-muted-gold transition-colors duration-300">Audio</a></li>
+                        <li><a href="accesorios.html" class="hover:text-muted-gold transition-colors duration-300">Accesorios</a></li>
+                        <li><a href="accesorios.html" class="hover:text-muted-gold transition-colors duration-300">Audio</a></li>
                     </ul>
                 </div>
                 <div>

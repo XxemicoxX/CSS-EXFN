@@ -25,7 +25,8 @@
 
 <body class="bg-gray-100 text-gray-800">
     <!-- Header -->
-    <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-charcoal text-cream shadow-lg transition-transform duration-300">
+    <header id="mainHeader"
+        class="fixed top-0 left-0 right-0 z-50 bg-charcoal text-cream shadow-lg transition-transform duration-300">
 
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-muted-gold">🎵 Harmony Music</div>
@@ -34,18 +35,24 @@
                     class="text-cream hover:text-muted-gold transition-colors duration-300">Inicio</a>
                 <a href="/pages/instrumentos.html"
                     class="text-cream hover:text-muted-gold transition-colors duration-300 font-medium border-b-2 border-muted-gold">Instrumentos</a>
-                <a href="/pages/accesorios.html" class="text-cream hover:text-muted-gold transition-colors duration-300">Accesorios y
+                <a href="/pages/accesorios.html"
+                    class="text-cream hover:text-muted-gold transition-colors duration-300">Accesorios y
                     Audio</a>
                 <a href="/pages/nosotros.html"
                     class="text-cream hover:text-muted-gold transition-colors duration-300">Nosotros</a>
                 <a href="/pages/contacto.html"
                     class="text-cream hover:text-muted-gold transition-colors duration-300">Contacto</a>
             </div>
-            <div class="hidden md:flex items-center space-x-3">
-                <button id="btnCarrito" class="bg-muted-gold text-charcoal px-4 py-2 rounded">🛒 Carrito (<span
-                        id="contadorCarrito">0</span>)</button>
-                <button class="bg-red-600 text-white px-4 py-2 rounded">Cerrar Sesión</button>
-            </div>
+            <div class="hidden md:flex space-x-4">
+                    <button onclick="toggleCart()"
+                        class="bg-muted-gold hover:bg-yellow-600 text-charcoal px-4 py-2 rounded transition-colors duration-300 font-medium">
+                        🛒 Carrito (0)
+                    </button>
+                    <button onclick="logout()"
+                        class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition-colors duration-300 font-medium">
+                        Cerrar Sesión
+                    </button>
+                </div>
         </nav>
     </header>
 
@@ -96,51 +103,51 @@
         </aside>
 
         <section id="productos" class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Fila 1 -->
+
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Guitarra Fender Stratocaster.jpg" alt="Guitarra" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Guitarra Fender Stratocaster.jpg" alt="Guitarra"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Guitarra Fender Stratocaster</h3>
                 <p class="text-sm text-gray-600">Eléctrica - Fender</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 499.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="fenderElectrica" data-nombre="Guitarra Fender Stratocaster" data-precio="499.99"
-                    data-imagen="/static/img/Guitarra Fender Stratocaster.jpg">
+                    onclick="addToCart('Guitarra Fender Stratocaster', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Teclado Yamaha PSR-E373.webp" alt="Teclado" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Teclado Yamaha PSR-E373.webp" alt="Teclado"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Teclado Yamaha PSR-E373</h3>
                 <p class="text-sm text-gray-600">Digital - Yamaha</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 299.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="teclaYamaha" data-nombre="Teclado Yamaha PSR-E373" data-precio="299.99"
-                    data-imagen="/static/img/Teclado Yamaha PSR-E373.webp">
+                    onclick="addToCart('Teclado Yamaha PSR-E373', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Batería Acústica Pearl Roadshow.webp" alt="Batería" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Batería Acústica Pearl Roadshow.webp" alt="Batería"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Batería Acústica Pearl Roadshow</h3>
                 <p class="text-sm text-gray-600">Acústico - Pearl</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 699.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="acusticoPearl" data-nombre="Batería Acústica Pearl Roadshow" data-precio="699.99"
-                    data-imagen="/static/img/Batería Acústica Pearl Roadshow.webp">
+                    onclick="addToCart('Batería Acústica Pearl Roadshow', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
-            <!-- Fila 2 -->
+
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Guitarra Ibanez RG450DX.jpg" alt="Guitarra" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Guitarra Ibanez RG450DX.jpg" alt="Guitarra"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Guitarra Ibanez RG450DX</h3>
                 <p class="text-sm text-gray-600">Eléctrica - Ibanez</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 549.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="ibanezElectrica" data-nombre="Guitarra Ibanez RG450DX" data-precio="549.99"
-                    data-imagen="/static/img/Guitarra Ibanez RG450DX.jpg">
+                    onclick="addToCart('Guitarra Ibanez RG450DX', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
@@ -151,379 +158,410 @@
                 <p class="text-sm text-gray-600">Digital - Casio</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 199.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="casioDigital" data-nombre="Teclado Casio CT-X700" data-precio="199.99"
-                    data-imagen="/static/img/image.avif">
+                    onclick="addToCart('Teclado Casio CT-X700', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Batería Alesis Nitro Mesh.jpg" alt="Batería Electrónica" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Batería Alesis Nitro Mesh.jpg" alt="Batería Electrónica"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Batería Alesis Nitro Mesh</h3>
                 <p class="text-sm text-gray-600">Digital - Alesis</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 399.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="alesisDigital" data-nombre="Batería Alesis Nitro Mesh" data-precio="399.99"
-                    data-imagen="/static/img/Batería Alesis Nitro Mesh.jpg">
+                    onclick="addToCart('Batería Alesis Nitro Mesh', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
-            <!-- Fila 3 -->
+
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Saxofón Jean Paul AS-400.jpg" alt="Saxofón Alto" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Saxofón Jean Paul AS-400.jpg" alt="Saxofón Alto"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Saxofón Jean Paul AS-400</h3>
                 <p class="text-sm text-gray-600">Viento - Jean Paul</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 699.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="saxJeanPaul" data-nombre="Saxofón Jean Paul AS-400" data-precio="699.99"
-                    data-imagen="/static/img/Saxofón Jean Paul AS-400.jpg">
+                    onclick="addToCart('Saxofón Jean Paul AS-400', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Trompeta Bach TR300H2.jpg" alt="Trompeta Bach" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Trompeta Bach TR300H2.jpg" alt="Trompeta Bach"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Trompeta Bach TR300H2</h3>
                 <p class="text-sm text-gray-600">Viento - Bach</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 499.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="bachViento" data-nombre="Trompeta Bach TR300H2" data-precio="499.99"
-                    data-imagen="/static/img/Trompeta Bach TR300H2.jpg">
+                    onclick="addToCart('Trompeta Bach TR300H2', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Guitarra Acústica Yamaha F310.jpg" alt="Guitarra Acústica Yamaha" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Guitarra Acústica Yamaha F310.jpg" alt="Guitarra Acústica Yamaha"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Guitarra Acústica Yamaha F310</h3>
                 <p class="text-sm text-gray-600">Acústico - Yamaha</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 299.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="yamahaAcustico" data-nombre="Guitarra Acústica Yamaha F310" data-precio="159.99"
-                    data-imagen="/static/img/Guitarra Acústica Yamaha F310.jpg">
+                    onclick="addToCart('Guitarra Acústica Yamaha F310', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
-            <!-- Fila 4 -->
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Bajo Fender Jazz Bass.jpg" alt="Bajo Fender" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Bajo Fender Jazz Bass.jpg" alt="Bajo Fender"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Bajo Fender Jazz Bass</h3>
                 <p class="text-sm text-gray-600">Eléctrico - Fender</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 749.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="jazzFender" data-nombre="Bajo Fender Jazz Bass" data-precio="749.99"
-                    data-imagen="/static/img/Bajo Fender Jazz Bass.jpg">
+                    onclick="addToCart('Bajo Fender Jazz Bass', 'instrumentos')">
                     Agregar al Carrito
-                </button>
+                </button>   
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Teclado Roland GO.webp" alt="Teclado Roland" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Teclado Roland GO.webp" alt="Teclado Roland"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Teclado Roland GO:KEYS</h3>
                 <p class="text-sm text-gray-600">Digital - Roland</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 319.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="rolandDigital" data-nombre="Teclado Roland GO:KEYS" data-precio="319.99"
-                    data-imagen="/static/img/Teclado Roland GO.webp">
+                    onclick="addToCart('Teclado Roland GO:KEYS', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Batería Tama Imperialstar.jpg" alt="Batería Tama" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Batería Tama Imperialstar.jpg" alt="Batería Tama"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Batería Tama Imperialstar</h3>
                 <p class="text-sm text-gray-600">Acústico - Tama</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 799.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="tamaAcustica" data-nombre="Batería Tama Imperialstar" data-precio="799.99"
-                    data-imagen="/static/img/Batería Tama Imperialstar.jpg">
+                    onclick="addToCart('Batería Tama Imperialstar', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
-            <!-- Fila 5 -->
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Flauta Yamaha YFL-222.webp" alt="Flauta Yamaha" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Flauta Yamaha YFL-222.webp" alt="Flauta Yamaha"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Flauta Yamaha YFL-222</h3>
                 <p class="text-sm text-gray-600">Viento - Yamaha</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 549.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="flautaYamaha" data-nombre="Flauta Yamaha YFL-222" data-precio="549.99"
-                    data-imagen="/static/img/Flauta Yamaha YFL-222.webp">
+                    onclick="addToCart('Flauta Yamaha YFL-222', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Clarinete Cecilio MCT.jpg" alt="Clarinete Cecilio" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Clarinete Cecilio MCT.jpg" alt="Clarinete Cecilio"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Clarinete Cecilio MCT</h3>
                 <p class="text-sm text-gray-600">Viento - Cecilio</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 179.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="cecilioViento" data-nombre="Clarinete Cecilio MCT" data-precio="179.99"
-                    data-imagen="/static/img/Clarinete Cecilio MCT.jpg">
+                    onclick="addToCart('Clarinete Cecilio MCT', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Teclado Kawai ES110.webp" alt="Teclado Kawai" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Teclado Kawai ES110.webp" alt="Teclado Kawai"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Teclado Kawai ES110</h3>
                 <p class="text-sm text-gray-600">Digital - Kawai</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 649.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="kawaiDigital" data-nombre="Teclado Kawai ES110" data-precio="649.99"
-                    data-imagen="/static/img/Teclado Kawai ES110.webp">
+                    onclick="addToCart('Teclado Kawai ES110', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
-            <!-- Fila 6 -->
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Guitarra Acústica Fender CD-60S.jpg" alt="Guitarra Fender CD-60S" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Guitarra Acústica Fender CD-60S.jpg" alt="Guitarra Fender CD-60S"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Guitarra Acústica Fender CD-60S</h3>
                 <p class="text-sm text-gray-600">Acústico - Fender</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 199.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="cd60sFender" data-nombre="Guitarra Acústica Fender CD-60S" data-precio="199.99"
-                    data-imagen="/static/img/Guitarra Acústica Fender CD-60S.jpg">
+                    onclick="addToCart('Guitarra Acústica Fender CD-60S', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Batería Acústica Ludwig Accent.webp" alt="Batería Ludwig" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Batería Acústica Ludwig Accent.webp" alt="Batería Ludwig"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Batería Acústica Ludwig Accent</h3>
                 <p class="text-sm text-gray-600">Acústico - Ludwig</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 589.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="ludwigAcustica" data-nombre="Batería Acústica Ludwig Accent" data-precio="589.99"
-                    data-imagen="/static/img/Batería Acústica Ludwig Accent.webp">
+                    onclick="addToCart('Batería Acústica Ludwig Accent', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Piano Digital Casio Privia PX-160.jpg" alt="Piano Casio" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Piano Digital Casio Privia PX-160.jpg" alt="Piano Casio"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Piano Digital Casio Privia PX-160</h3>
                 <p class="text-sm text-gray-600">Digital - Casio</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 499.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="priviaCasio" data-nombre="Piano Digital Casio Privia PX-160" data-precio="499.99"
-                    data-imagen="/static/img/Piano Digital Casio Privia PX-160.jpg">
+                    onclick="addToCart('Piano Digital Casio Privia PX-160', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
-            <!-- Fila 7 -->
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Trompeta Yamaha YTR-2330.webp" alt="Trompeta Yamaha" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Trompeta Yamaha YTR-2330.webp" alt="Trompeta Yamaha"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Trompeta Yamaha YTR-2330</h3>
                 <p class="text-sm text-gray-600">Viento - Yamaha</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 599.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="trompetaYamaha" data-nombre="Trompeta Yamaha YTR-2330" data-precio="599.99"
-                    data-imagen="/static/img/Trompeta Yamaha YTR-2330.webp">
+                    onclick="addToCart('Trompeta Yamaha YTR-2330', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Guitarra Eléctrica Epiphone Les Paul.webp" alt="Guitarra Epiphone" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Guitarra Eléctrica Epiphone Les Paul.webp" alt="Guitarra Epiphone"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Guitarra Eléctrica Epiphone Les Paul</h3>
                 <p class="text-sm text-gray-600">Eléctrico - Epiphone</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 429.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="epiphoneElectrica" data-nombre="Guitarra Eléctrica Epiphone Les Paul" data-precio="429.99"
-                    data-imagen="/static/img/Guitarra Eléctrica Epiphone Les Paul.webp">
+                    onclick="addToCart('Guitarra Eléctrica Epiphone Les Paul', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Cajón Flamenco Meinl.jpg" alt="Cajón Meinl" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Cajón Flamenco Meinl.jpg" alt="Cajón Meinl"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Cajón Flamenco Meinl</h3>
                 <p class="text-sm text-gray-600">Percusión - Meinl</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 129.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="cajonMeinl" data-nombre="Cajón Flamenco Meinl" data-precio="129.99"
-                    data-imagen="/static/img/Cajón Flamenco Meinl.jpg">
+                    onclick="addToCart('Cajón Flamenco Meinl', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
-            <!-- Fila 8 -->
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Ukelele Kala KA-15S.webp" alt="Ukelele Kala" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Ukelele Kala KA-15S.webp" alt="Ukelele Kala"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Ukelele Kala KA-15S</h3>
                 <p class="text-sm text-gray-600">Acústico - Kala</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 69.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="kalaAcustico" data-nombre="Ukelele Kala KA-15S" data-precio="69.99"
-                    data-imagen="/static/img/Ukelele Kala KA-15S.webp">
+                    onclick="addToCart('Ukelele Kala KA-15S', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Batería Digital Roland TD-1K.jpg" alt="Batería Roland TD-1K" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Batería Digital Roland TD-1K.jpg" alt="Batería Roland TD-1K"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Batería Digital Roland TD-1K</h3>
                 <p class="text-sm text-gray-600">Digital - Roland</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 599.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="rolandDigitalTD1K" data-nombre="Batería Digital Roland TD-1K" data-precio="599.99"
-                    data-imagen="/static/img/Batería Digital Roland TD-1K.jpg">
+                    onclick="addToCart('Batería Digital Roland TD-1K', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Teclado Yamaha NP-32.webp" alt="Teclado Yamaha NP-32" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Teclado Yamaha NP-32.webp" alt="Teclado Yamaha NP-32"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Teclado Yamaha NP-32</h3>
                 <p class="text-sm text-gray-600">Digital - Yamaha</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 299.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="np32Yamaha" data-nombre="Teclado Yamaha NP-32" data-precio="299.99"
-                    data-imagen="/static/img/Teclado Yamaha NP-32.webp">
+                    onclick="addToCart('Teclado Yamaha NP-32', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
-            <!-- Fila 9 -->
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Saxofón Tenor Mendini MTS-L.webp" alt="Saxofón Tenor Mendini" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Saxofón Tenor Mendini MTS-L.webp" alt="Saxofón Tenor Mendini"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Saxofón Tenor Mendini MTS-L</h3>
                 <p class="text-sm text-gray-600">Viento - Mendini</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 529.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="tenorMendini" data-nombre="Saxofón Tenor Mendini MTS-L" data-precio="529.99"
-                    data-imagen="/static/img/Saxofón Tenor Mendini MTS-L.webp">
+                    onclick="addToCart('Saxofón Tenor Mendini MTS-L', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Guitarra Cort CR250.jpg" alt="Guitarra Cort CR250" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Guitarra Cort CR250.jpg" alt="Guitarra Cort CR250"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Guitarra Cort CR250</h3>
                 <p class="text-sm text-gray-600">Eléctrico - Cort</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 399.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="cortElectrica" data-nombre="Guitarra Cort CR250" data-precio="399.99"
-                    data-imagen="/static/img/Guitarra Cort CR250.jpg">
+                    onclick="addToCart('Guitarra Cort CR250', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Piano Digital Yamaha P-45.png" alt="Piano Yamaha P-45" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Piano Digital Yamaha P-45.png" alt="Piano Yamaha P-45"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Piano Digital Yamaha P-45</h3>
                 <p class="text-sm text-gray-600">Digital - Yamaha</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 479.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="p45Yamaha" data-nombre="Piano Digital Yamaha P-45" data-precio="479.99"
-                    data-imagen="/static/img/Piano Digital Yamaha P-45.png">
+                    onclick="addToCart('Piano Digital Yamaha P-45', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
-            <!-- Fila 10 -->
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Guitarra Acústica Takamine GD20.webp" alt="Guitarra Takamine GD20" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Guitarra Acústica Takamine GD20.webp" alt="Guitarra Takamine GD20"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Guitarra Acústica Takamine GD20</h3>
                 <p class="text-sm text-gray-600">Acústico - Takamine</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 349.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="takamineAcustico" data-nombre="Guitarra Acústica Takamine GD20" data-precio="349.99"
-                    data-imagen="/static/img/Guitarra Acústica Takamine GD20.webp">
+                    onclick="addToCart('Guitarra Acústica Takamine GD20', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Batería Acústica Mapex Tornado.webp" alt="Batería Mapex Tornado" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Batería Acústica Mapex Tornado.webp" alt="Batería Mapex Tornado"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Batería Acústica Mapex Tornado</h3>
                 <p class="text-sm text-gray-600">Acústico - Mapex</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 449.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="mapexAcustico" data-nombre="Batería Acústica Mapex Tornado" data-precio="449.99"
-                    data-imagen="/static/img/Batería Acústica Mapex Tornado.webp">
+                    onclick="addToCart('Batería Acústica Mapex Tornado', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
-                <img src="/static/img/Teclado Medeli MK401.jpg" alt="Teclado Medeli MK401" class="w-full h-48 object-cover rounded">
+                <img src="/static/img/Teclado Medeli MK401.jpg" alt="Teclado Medeli MK401"
+                    class="w-full h-48 object-cover rounded">
                 <h3 class="mt-4 font-bold text-charcoal">Teclado Medeli MK401</h3>
                 <p class="text-sm text-gray-600">Digital - Medeli</p>
                 <p class="text-muted-gold font-bold mt-2">S/. 229.99</p>
                 <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
-                    data-id="medeliDigital" data-nombre="Teclado Medeli MK401" data-precio="229.99"
-                    data-imagen="/static/img/Teclado Medeli MK401.jpg">
+                    onclick="addToCart('Teclado Medeli MK401', 'instrumentos')">
                     Agregar al Carrito
                 </button>
             </div>
 
         </section>
     </main>
-    <!-- Modal de carrito -->
-    <div id="modalCarrito"
-        class="fixed top-0 right-0 w-full md:w-96 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
-        <div class="p-4 border-b flex justify-between items-center">
-            <h2 class="text-lg font-bold text-charcoal">🛒 Carrito de Compras</h2>
-            <button id="cerrarCarrito" class="text-red-600 font-bold text-xl">×</button>
-        </div>
-        <div id="contenidoCarrito" class="p-4 space-y-4">
-            <!-- Productos agregados aparecerán aquí -->
-        </div>
-        <div class="p-4 border-t text-right">
-            <div id="totalCarrito" class="text-right font-bold text-charcoal text-lg mb-4">
-                Total: S/. 0.00
+
+    <div id="cartSidebar"
+        class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex flex-col h-full">
+
+            <div class="bg-charcoal text-cream p-4 flex justify-between items-center">
+                <h3 class="text-lg font-bold">🛒 Mi Carrito</h3>
+                <button onclick="toggleCart()" class="text-cream hover:text-muted-gold">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
             </div>
-            <button id="btnFinalizar"
-                class="bg-muted-gold text-charcoal px-4 py-2 rounded hover:bg-yellow-500 transition">Finalizar
-                Pedido</button>
+
+            <div class="flex-1 overflow-y-auto p-4">
+                <div id="cartItems" class="space-y-3">
+
+                </div>
+
+                <div id="emptyCartMessage" class="text-center text-gray-500 py-8">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 9M7 13l-1.5 9m0 0h12"></path>
+                    </svg>
+                    <p>Tu carrito está vacío</p>
+                </div>
+            </div>
+
+            <div class="border-t p-4 bg-gray-50">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-bold">Total:</span>
+                    <span id="cartTotal" class="text-xl font-bold text-muted-gold">S/. 0.00</span>
+                </div>
+                <button
+                    class="w-full bg-charcoal hover:bg-slate-warm text-cream py-3 rounded-lg font-bold transition-colors duration-300"
+                    onclick="proceedToCheckout()">
+                    Proceder al Pago
+                </button>
+            </div>
         </div>
     </div>
-    <!-- Modal de Finalización -->
-    <div id="modalGracias" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
-        <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-md w-full">
-            <div class="text-green-500 text-5xl mb-4">✅</div>
-            <h2 class="text-2xl font-bold text-charcoal mb-2">¡Gracias por su compra!</h2>
-            <p class="text-gray-600">Esperamos que disfrute sus productos musicales 🎵</p>
-            <button id="cerrarGracias"
-                class="mt-6 bg-muted-gold text-charcoal px-4 py-2 rounded hover:bg-yellow-500 transition">Cerrar</button>
-        </div>
-    </div>
-    <!-- Overlay para el modal -->
-    <div id="overlayCarrito" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-10 mt-20">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-muted-gold font-bold text-lg">Harmony Music Store</p>
-            <p class="text-sm mt-2">&copy; 2025 Todos los derechos reservados.</p>
+
+    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="toggleCart()"></div>
+
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-muted-gold">Harmony Music</h3>
+                    <p class="text-gray-400">Tu tienda de confianza para instrumentos musicales y equipos de audio
+                        profesional.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Navegación</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-muted-gold transition-colors duration-300">Inicio</a>
+                        </li>
+                        <li><a href="instrumentos.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Instrumentos</a>
+                        </li>
+                        <li><a href="accesorios-audio.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Accesorios</a></li>
+                        <li><a href="accesorios-audio.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Audio</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Ayuda</h4>
+                    <ul class="space-y-2">
+                        <li><a href="contacto.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Contacto</a></li>
+                        <li><a href="nosotros.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Nosotros</a></li>
+                        <li><a href="devolucion.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Política de
+                                Devolución</a></li>
+                        <li><a href="recojo.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Recojo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contacto</h4>
+                    <p class="text-gray-400 mb-2">📧 info@harmonymusic.com</p>
+                    <p class="text-gray-400 mb-2">📞 +51 999 999 999</p>
+                    <p class="text-gray-400">📍 Lima, Perú</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Harmony Music Store. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
-    <script>
-    let lastScroll = 0;
-    const header = document.getElementById('mainHeader');
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            // Scroll hacia abajo: ocultar el header
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            // Scroll hacia arriba: mostrar el header
-            header.style.transform = 'translateY(0)';
-        }
-
-        lastScroll = currentScroll;
-    });
-</script>
     <!-- JS para filtros -->
     <script src="/static/js/producto.js"></script>
+    <script src="/static/js/index.js"></script>
 </body>
 
 </html>
