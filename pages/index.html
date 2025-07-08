@@ -34,18 +34,22 @@
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="#"
+                    <a href="index.html"
                         class="text-cream hover:text-muted-gold transition-colors duration-300 font-medium border-b-2 border-muted-gold">Inicio</a>
-                    <a href="#" class="text-cream hover:text-muted-gold transition-colors duration-300">Instrumentos</a>
-                    <a href="#" class="text-cream hover:text-muted-gold transition-colors duration-300">Accesorios y
+                    <a href="instrumentos.html"
+                        class="text-cream hover:text-muted-gold transition-colors duration-300">Instrumentos</a>
+                    <a href="accesorios-audio.html"
+                        class="text-cream hover:text-muted-gold transition-colors duration-300">Accesorios y
                         Audio</a>
-                    <a href="#" class="text-cream hover:text-muted-gold transition-colors duration-300">Nosotros</a>
-                    <a href="#" class="text-cream hover:text-muted-gold transition-colors duration-300">Contacto</a>
+                    <a href="nosotros.html"
+                        class="text-cream hover:text-muted-gold transition-colors duration-300">Nosotros</a>
+                    <a href="contacto.html"
+                        class="text-cream hover:text-muted-gold transition-colors duration-300">Contacto</a>
                 </div>
 
                 <!-- User greeting or cart -->
                 <div class="hidden md:flex space-x-4">
-                    <button
+                    <button onclick="toggleCart()"
                         class="bg-muted-gold hover:bg-yellow-600 text-charcoal px-4 py-2 rounded transition-colors duration-300 font-medium">
                         🛒 Carrito (0)
                     </button>
@@ -66,19 +70,19 @@
 
             <!-- Mobile Navigation -->
             <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-4">
-                <a href="#"
+                <a href="index.html"
                     class="block text-cream hover:text-muted-gold transition-colors duration-300 py-2 border-b border-slate-warm">Inicio</a>
-                <a href="#"
+                <a href="instrumentos.html"
                     class="block text-cream hover:text-muted-gold transition-colors duration-300 py-2">Instrumentos</a>
-                <a href="#"
+                <a href="accesorios-audio.html"
                     class="block text-cream hover:text-muted-gold transition-colors duration-300 py-2">Accesorios y
                     Audio</a>
-                <a href="#"
+                <a href="nosotros.html"
                     class="block text-cream hover:text-muted-gold transition-colors duration-300 py-2">Nosotros</a>
-                <a href="#"
+                <a href="contacto.html"
                     class="block text-cream hover:text-muted-gold transition-colors duration-300 py-2">Contacto</a>
                 <div class="pt-4 space-y-2">
-                    <button
+                    <button onclick="toggleCart()"
                         class="block bg-muted-gold hover:bg-yellow-600 text-charcoal px-4 py-2 rounded transition-colors duration-300 font-medium text-center w-full">
                         🛒 Carrito (0)
                     </button>
@@ -86,6 +90,56 @@
             </div>
         </nav>
     </header>
+
+    <!-- Carrito Lateral -->
+    <div id="cartSidebar"
+        class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex flex-col h-full">
+            <!-- Header del carrito -->
+            <div class="bg-charcoal text-cream p-4 flex justify-between items-center">
+                <h3 class="text-lg font-bold">🛒 Mi Carrito</h3>
+                <button onclick="toggleCart()" class="text-cream hover:text-muted-gold">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Contenido del carrito -->
+            <div class="flex-1 overflow-y-auto p-4">
+                <div id="cartItems" class="space-y-3">
+                    <!-- Los productos se agregarán aquí dinámicamente -->
+                </div>
+
+                <!-- Mensaje cuando el carrito está vacío -->
+                <div id="emptyCartMessage" class="text-center text-gray-500 py-8">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 9M7 13l-1.5 9m0 0h12"></path>
+                    </svg>
+                    <p>Tu carrito está vacío</p>
+                </div>
+            </div>
+
+            <!-- Footer del carrito -->
+            <div class="border-t p-4 bg-gray-50">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-bold">Total:</span>
+                    <span id="cartTotal" class="text-xl font-bold text-muted-gold">S/. 0.00</span>
+                </div>
+                <button
+                    class="w-full bg-charcoal hover:bg-slate-warm text-cream py-3 rounded-lg font-bold transition-colors duration-300"
+                    onclick="proceedToCheckout()">
+                    Proceder al Pago
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay para cerrar el carrito -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="toggleCart()"></div>
 
     <!-- Hero Section -->
     <section class="bg-slate-warm text-cream py-20">
@@ -115,7 +169,8 @@
                 <div class="relative">
                     <!-- Imagen principal del hero: hero-guitar.jpg -->
                     <div class="relative overflow-hidden rounded-lg shadow-2xl">
-                        <img src="hero-guitar.jpg" alt="Guitarra principal" class="w-full h-96 object-cover">
+                        <img src="/static/img/guitarra-principal.jpg" alt="Guitarra principal"
+                            class="w-full h-96 object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-charcoal/50 to-transparent"></div>
                     </div>
                 </div>
@@ -133,7 +188,7 @@
                         class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
                         <!-- Imagen de categoría instrumentos: category-instruments.jpg -->
                         <div class="h-48 overflow-hidden">
-                            <img src="category-instruments.jpg" alt="Instrumentos"
+                            <img src="/static/img/instrumentos.jpg" alt="Instrumentos"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                         </div>
                         <div class="p-6">
@@ -148,7 +203,7 @@
                         class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
                         <!-- Imagen de categoría accesorios: category-accessories.jpg -->
                         <div class="h-48 overflow-hidden">
-                            <img src="category-accessories.jpg" alt="Accesorios"
+                            <img src="/static/img/accesorios.jpg" alt="Accesorios"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                         </div>
                         <div class="p-6">
@@ -163,7 +218,7 @@
                         class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
                         <!-- Imagen de categoría audio: category-audio.jpg -->
                         <div class="h-48 overflow-hidden">
-                            <img src="category-audio.jpg" alt="Audio"
+                            <img src="/static/img/equipos-audio.jpg" alt="Audio"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                         </div>
                         <div class="p-6">
@@ -185,13 +240,13 @@
                     class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <!-- Imagen producto 1: product-1.jpg -->
                     <div class="h-48 overflow-hidden">
-                        <img src="product-1.jpg" alt="Producto destacado 1"
+                        <img src="/static/img/guitarra-yamaha.jpg" alt="Producto destacado 1"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-4">
                         <h3 class="font-bold text-charcoal mb-2">Guitarra Acústica</h3>
                         <p class="text-gray-600 text-sm mb-2">Yamaha F310</p>
-                        <p class="text-muted-gold font-bold text-lg">$299.99</p>
+                        <p class="text-muted-gold font-bold text-lg">S/. 299.99</p>
                         <button
                             class="w-full bg-charcoal hover:bg-slate-warm text-cream py-2 mt-3 rounded transition-colors duration-300"
                             onclick="addToCart('Guitarra Acústica', 'instrumentos')">
@@ -204,13 +259,13 @@
                     class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <!-- Imagen producto 2: product-2.jpg -->
                     <div class="h-48 overflow-hidden">
-                        <img src="product-2.jpg" alt="Producto destacado 2"
+                        <img src="/static/img/teclado-casio.webp" alt="Producto destacado 2"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-4">
                         <h3 class="font-bold text-charcoal mb-2">Teclado Digital</h3>
                         <p class="text-gray-600 text-sm mb-2">Casio CTK-3500</p>
-                        <p class="text-muted-gold font-bold text-lg">$199.99</p>
+                        <p class="text-muted-gold font-bold text-lg">S/. 199.99</p>
                         <button
                             class="w-full bg-charcoal hover:bg-slate-warm text-cream py-2 mt-3 rounded transition-colors duration-300"
                             onclick="addToCart('Teclado Digital', 'instrumentos')">
@@ -223,13 +278,13 @@
                     class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <!-- Imagen producto 3: product-3.jpg -->
                     <div class="h-48 overflow-hidden">
-                        <img src="product-3.jpg" alt="Producto destacado 3"
+                        <img src="/static/img/amplificador-fender.jpg" alt="Producto destacado 3"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-4">
                         <h3 class="font-bold text-charcoal mb-2">Amplificador</h3>
                         <p class="text-gray-600 text-sm mb-2">Fender Frontman 10G</p>
-                        <p class="text-muted-gold font-bold text-lg">$79.99</p>
+                        <p class="text-muted-gold font-bold text-lg">S/. 79.99</p>
                         <button
                             class="w-full bg-charcoal hover:bg-slate-warm text-cream py-2 mt-3 rounded transition-colors duration-300"
                             onclick="addToCart('Amplificador', 'accesorios')">
@@ -240,15 +295,14 @@
 
                 <div
                     class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <!-- Imagen producto 4: product-4.jpg -->
                     <div class="h-48 overflow-hidden">
-                        <img src="product-4.jpg" alt="Producto destacado 4"
+                        <img src="/static/img/microfono-audio.webp" alt="Producto destacado 4"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-                    </div> 
+                    </div>
                     <div class="p-4">
                         <h3 class="font-bold text-charcoal mb-2">Micrófono</h3>
                         <p class="text-gray-600 text-sm mb-2">Audio-Technica ATR2100</p>
-                        <p class="text-muted-gold font-bold text-lg">$149.99</p>
+                        <p class="text-muted-gold font-bold text-lg">S/. 149.99</p>
                         <button
                             class="w-full bg-charcoal hover:bg-slate-warm text-cream py-2 mt-3 rounded transition-colors duration-300"
                             onclick="addToCart('Micrófono', 'accesorios')">
@@ -260,7 +314,6 @@
         </div>
     </section>
 
-    <!-- Newsletter Section -->
     <section class="py-16 bg-charcoal text-cream">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-6">Mantente al Día</h2>
@@ -277,7 +330,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-gray-300 py-12">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8">
@@ -289,21 +341,29 @@
                 <div>
                     <h4 class="font-bold mb-4">Navegación</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-muted-gold transition-colors duration-300">Inicio</a></li>
-                        <li><a href="#" class="hover:text-muted-gold transition-colors duration-300">Instrumentos</a>
+                        <li><a href="index.html" class="hover:text-muted-gold transition-colors duration-300">Inicio</a>
                         </li>
-                        <li><a href="#" class="hover:text-muted-gold transition-colors duration-300">Accesorios</a></li>
-                        <li><a href="#" class="hover:text-muted-gold transition-colors duration-300">Audio</a></li>
+                        <li><a href="instrumentos.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Instrumentos</a>
+                        </li>
+                        <li><a href="accesorios-audio.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Accesorios</a></li>
+                        <li><a href="accesorios-audio.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Audio</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold mb-4">Ayuda</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-muted-gold transition-colors duration-300">Contacto</a></li>
-                        <li><a href="#" class="hover:text-muted-gold transition-colors duration-300">Nosotros</a></li>
-                        <li><a href="#" class="hover:text-muted-gold transition-colors duration-300">Política de
+                        <li><a href="contacto.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Contacto</a></li>
+                        <li><a href="nosotros.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Nosotros</a></li>
+                        <li><a href="devolucion.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Política de
                                 Devolución</a></li>
-                        <li><a href="#" class="hover:text-muted-gold transition-colors duration-300">Envíos</a></li>
+                        <li><a href="recojo.html"
+                                class="hover:text-muted-gold transition-colors duration-300">Recojo</a></li>
                     </ul>
                 </div>
                 <div>
@@ -319,158 +379,7 @@
         </div>
     </footer>
 
-    <script>
-        // Authentication check
-        function checkAuth() {
-            // Simular verificación de autenticación
-            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-            if (!isLoggedIn) {
-                // Redirigir a la página de login
-                window.location.href = 'login.html';
-                return false;
-            }
-            return true;
-        }
-
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function () {
-            // Para propósitos de demo, comentar la línea siguiente para poder ver la página
-            // checkAuth();
-
-            // Actualizar contador del carrito
-            updateCartCounter();
-        });
-
-        // Cart functionality
-        let cart = [];
-
-        function addToCart(productName, category) {
-            cart.push({
-                name: productName,
-                category: category
-            });
-            updateCartCounter();
-
-            // Mostrar confirmación
-            alert(`${productName} agregado al carrito!`);
-
-            // Navegar a la categoría correspondiente
-            navigateToCategory(category);
-        }
-
-        function updateCartCounter() {
-            const cartButtons = document.querySelectorAll('button:contains("Carrito")');
-            cartButtons.forEach(button => {
-                if (button.textContent.includes('Carrito')) {
-                    button.textContent = `🛒 Carrito (${cart.length})`;
-                }
-            });
-        }
-
-        // Toggle mobile menu
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('hidden');
-        }
-
-        // Navigate to category
-        function navigateToCategory(category) {
-            console.log('Navegando a categoría:', category);
-            // Aquí puedes agregar la lógica de navegación real
-            if (category === 'instrumentos') {
-                // window.location.href = 'instrumentos.html';
-                alert('Navegando a Instrumentos');
-            } else if (category === 'accesorios') {
-                // window.location.href = 'accesorios.html';
-                alert('Navegando a Accesorios y Audio');
-            }
-        }
-
-        // Newsletter subscription
-        function subscribeNewsletter() {
-            const emailInput = document.getElementById('emailInput');
-            const email = emailInput.value.trim();
-
-            if (email === '') {
-                alert('Por favor, ingresa tu correo electrónico');
-                return;
-            }
-
-            if (!isValidEmail(email)) {
-                alert('Por favor, ingresa un correo electrónico válido');
-                return;
-            }
-
-            // Simular suscripción
-            alert('¡Gracias por suscribirte! Te enviaremos las mejores ofertas.');
-            emailInput.value = '';
-        }
-
-        // Email validation
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function (event) {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const menuButton = event.target.closest('button');
-
-            if (!mobileMenu.contains(event.target) && !menuButton) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-
-        // Helper function to find buttons by text content
-        function updateCartButtons() {
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(button => {
-                if (button.textContent.includes('🛒 Carrito')) {
-                    button.textContent = `🛒 Carrito (${cart.length})`;
-                }
-            });
-        }
-
-        // Update cart counter properly
-        function updateCartCounter() {
-            updateCartButtons();
-        }
-
-        // Logout functionality
-        function logout() {
-            // Confirmar si el usuario realmente quiere cerrar sesión
-            if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
-                // Limpiar datos de sesión
-                localStorage.removeItem('isLoggedIn');
-                localStorage.removeItem('userEmail');
-                localStorage.removeItem('userName');
-                
-                // Limpiar carrito si es necesario
-                cart = [];
-                
-                // Mostrar mensaje de confirmación
-                alert('Has cerrado sesión exitosamente');
-                
-                // Redirigir al login
-                window.location.href = 'login.html';
-            }
-        }
-
-    </script>
+    <script src="/static/js/index.js"></script>
 </body>
 
 </html>
