@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Harmony Music Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a2e0cde1c5.js" crossorigin="anonymous"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2d3748',
+                        'slate-warm': '#4a5568',
+                        'cream': '#f7fafc',
+                        'muted-gold': '#d69e2e',
+                        'soft-brown': '#8b7355'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-charcoal text-cream shadow-lg">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-muted-gold">🎵 Harmony Music</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="/pages/index.html" class="text-cream hover:text-muted-gold">Inicio</a>
+                <a href="/pages/instrumentos.html" class="text-cream hover:text-muted-gold border-b-2 border-muted-gold">Instrumentos</a>
+                <a href="#" class="text-cream hover:text-muted-gold">Accesorios y Audio</a>
+                <a href="#" class="text-cream hover:text-muted-gold">Nosotros</a>
+                <a href="/pages/contacto.html" class="text-cream hover:text-muted-gold">Contacto</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-3">
+                <button id="btnCarrito" class="bg-muted-gold text-charcoal px-4 py-2 rounded">🛒 Carrito (<span
+                        id="contadorCarrito">0</span>)</button>
+                <button class="bg-red-600 text-white px-4 py-2 rounded">Cerrar Sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="bg-cream py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-charcoal mb-12">Contáctanos</h2>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <!-- Formulario -->
+                <form class="bg-white p-8 rounded-lg shadow-md" id="formContacto">
+                    <div class="mb-4">
+                        <label for="nombre" class="block text-charcoal font-medium mb-2">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre"
+                            class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-muted-gold">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-charcoal font-medium mb-2">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required placeholder="tu@email.com"
+                            class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-muted-gold">
+                    </div>
+                    <div class="mb-4">
+                        <label for="mensaje" class="block text-charcoal font-medium mb-2">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje..."
+                            class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-muted-gold"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="bg-muted-gold hover:bg-yellow-600 text-charcoal font-bold py-2 px-6 rounded transition duration-300">
+                        Enviar
+                    </button>
+                </form>
+
+                <!-- Info -->
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-envelope text-muted-gold text-2xl"></i>
+                        <div>
+                            <h4 class="text-lg font-bold text-charcoal">Correo Electrónico</h4>
+                            <p class="text-gray-600">info@harmonymusic.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-phone-alt text-muted-gold text-2xl"></i>
+                        <div>
+                            <h4 class="text-lg font-bold text-charcoal">Teléfono</h4>
+                            <p class="text-gray-600">+51 999 999 999</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <i class="fab fa-whatsapp text-muted-gold text-2xl"></i>
+                        <div>
+                            <h4 class="text-lg font-bold text-charcoal">WhatsApp</h4>
+                            <p class="text-gray-600">+51 987 654 321</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-map-marker-alt text-muted-gold text-2xl"></i>
+                        <div>
+                            <h4 class="text-lg font-bold text-charcoal">Dirección</h4>
+                            <p class="text-gray-600">Av. Musical 123, Lima, Perú</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modalGracias"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-sm text-center">
+            <h3 class="text-2xl font-bold text-charcoal mb-4">¡Gracias por contactarnos!</h3>
+            <p class="text-gray-600 mb-6">Pronto nos pondremos en contacto contigo.</p>
+            <button onclick="cerrarModal()"
+                class="bg-muted-gold hover:bg-yellow-600 text-charcoal font-bold px-6 py-2 rounded">
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8 text-center">
+        <p>&copy; 2025 Harmony Music Store. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        const form = document.getElementById("formContacto");
+        const modal = document.getElementById("modalGracias");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevenir envío real
+            modal.classList.remove("hidden");
+            form.reset(); // Limpiar campos
+        });
+
+        function cerrarModal() {
+            modal.classList.add("hidden");
+        }
+    </script>
+</body>
+
+</html>
