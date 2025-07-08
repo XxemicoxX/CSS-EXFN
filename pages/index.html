@@ -450,6 +450,26 @@
             updateCartButtons();
         }
 
+        // Logout functionality
+        function logout() {
+            // Confirmar si el usuario realmente quiere cerrar sesión
+            if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+                // Limpiar datos de sesión
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userEmail');
+                localStorage.removeItem('userName');
+                
+                // Limpiar carrito si es necesario
+                cart = [];
+                
+                // Mostrar mensaje de confirmación
+                alert('Has cerrado sesión exitosamente');
+                
+                // Redirigir al login
+                window.location.href = 'login.html';
+            }
+        }
+
     </script>
 </body>
 
