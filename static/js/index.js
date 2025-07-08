@@ -56,7 +56,7 @@ function navigateToCategory(category) {
     console.log('Navegando a categoría:', category);
     // Aquí puedes agregar la lógica de navegación real
     if (category === 'instrumentos') {
-        // window.location.href = 'instrumentos.html';
+        window.location.href = 'instrumentos.html';
         alert('Navegando a Instrumentos');
     } else if (category === 'accesorios') {
         // window.location.href = 'accesorios.html';
