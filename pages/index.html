@@ -24,7 +24,6 @@
 </head>
 
 <body class="bg-gray-100 text-gray-800">
-    <!-- Header/Navigation -->
     <header class="bg-charcoal text-cream shadow-lg">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
@@ -32,7 +31,6 @@
                     <div class="text-2xl font-bold text-muted-gold">🎵 Harmony Music</div>
                 </div>
 
-                <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-8">
                     <a href="#"
                         class="text-cream hover:text-muted-gold transition-colors duration-300 font-medium border-b-2 border-muted-gold">Inicio</a>
@@ -43,7 +41,6 @@
                     <a href="/pages/contacto.html" class="text-cream hover:text-muted-gold transition-colors duration-300">Contacto</a>
                 </div>
 
-                <!-- User greeting or cart -->
                 <div class="hidden md:flex space-x-4">
                     <button onclick="toggleCart()"
                         class="bg-muted-gold hover:bg-yellow-600 text-charcoal px-4 py-2 rounded transition-colors duration-300 font-medium">
@@ -55,7 +52,6 @@
                     </button>
                 </div>
 
-                <!-- Mobile menu button -->
                 <button class="md:hidden text-cream" onclick="toggleMobileMenu()">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -64,7 +60,6 @@
                 </button>
             </div>
 
-            <!-- Mobile Navigation -->
             <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-4">
                 <a href="index.html"
                     class="block text-cream hover:text-muted-gold transition-colors duration-300 py-2 border-b border-slate-warm">Inicio</a>
@@ -86,12 +81,11 @@
             </div>
         </nav>
     </header>
-
-    <!-- Carrito Lateral -->
+    <!--Cuerpo del carrito-->
     <div id="cartSidebar"
         class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
         <div class="flex flex-col h-full">
-            <!-- Header del carrito -->
+
             <div class="bg-charcoal text-cream p-4 flex justify-between items-center">
                 <h3 class="text-lg font-bold">🛒 Mi Carrito</h3>
                 <button onclick="toggleCart()" class="text-cream hover:text-muted-gold">
@@ -102,13 +96,12 @@
                 </button>
             </div>
 
-            <!-- Contenido del carrito -->
+            <!--Carrito-->
             <div class="flex-1 overflow-y-auto p-4">
                 <div id="cartItems" class="space-y-3">
-                    <!-- Los productos se agregarán aquí dinámicamente -->
+
                 </div>
 
-                <!-- Mensaje cuando el carrito está vacío -->
                 <div id="emptyCartMessage" class="text-center text-gray-500 py-8">
                     <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">
@@ -119,7 +112,6 @@
                 </div>
             </div>
 
-            <!-- Footer del carrito -->
             <div class="border-t p-4 bg-gray-50">
                 <div class="flex justify-between items-center mb-4">
                     <span class="text-lg font-bold">Total:</span>
@@ -134,10 +126,8 @@
         </div>
     </div>
 
-    <!-- Overlay para cerrar el carrito -->
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="toggleCart()"></div>
 
-    <!-- Hero Section -->
     <section class="bg-slate-warm text-cream py-20">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -163,7 +153,6 @@
                     </div>
                 </div>
                 <div class="relative">
-                    <!-- Imagen principal del hero: hero-guitar.jpg -->
                     <div class="relative overflow-hidden rounded-lg shadow-2xl">
                         <img src="/static/img/guitarra-principal.jpg" alt="Guitarra principal"
                             class="w-full h-96 object-cover">
@@ -174,7 +163,6 @@
         </div>
     </section>
 
-    <!-- Featured Categories -->
     <section class="py-16 bg-cream">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-charcoal">Categorías Destacadas</h2>
@@ -182,7 +170,6 @@
                 <div class="group cursor-pointer" onclick="navigateToCategory('instrumentos')">
                     <div
                         class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <!-- Imagen de categoría instrumentos: category-instruments.jpg -->
                         <div class="h-48 overflow-hidden">
                             <img src="/static/img/instrumentos.jpg" alt="Instrumentos"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -197,7 +184,6 @@
                 <div class="group cursor-pointer" onclick="navigateToCategory('accesorios')">
                     <div
                         class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <!-- Imagen de categoría accesorios: category-accessories.jpg -->
                         <div class="h-48 overflow-hidden">
                             <img src="/static/img/accesorios.jpg" alt="Accesorios"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -209,10 +195,9 @@
                     </div>
                 </div>
 
-                <div class="group cursor-pointer" onclick="navigateToCategory('audio')">
+                <div class="group cursor-pointer" onclick="navigateToCategory('accesorios')">
                     <div
                         class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <!-- Imagen de categoría audio: category-audio.jpg -->
                         <div class="h-48 overflow-hidden">
                             <img src="/static/img/equipos-audio.jpg" alt="Audio"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -227,14 +212,12 @@
         </div>
     </section>
 
-    <!-- Featured Products -->
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-charcoal">Productos Destacados</h2>
             <div class="grid md:grid-cols-4 gap-6">
                 <div
                     class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <!-- Imagen producto 1: product-1.jpg -->
                     <div class="h-48 overflow-hidden">
                         <img src="/static/img/guitarra-yamaha.jpg" alt="Producto destacado 1"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
@@ -253,7 +236,6 @@
 
                 <div
                     class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <!-- Imagen producto 2: product-2.jpg -->
                     <div class="h-48 overflow-hidden">
                         <img src="/static/img/teclado-casio.webp" alt="Producto destacado 2"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
@@ -272,7 +254,6 @@
 
                 <div
                     class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <!-- Imagen producto 3: product-3.jpg -->
                     <div class="h-48 overflow-hidden">
                         <img src="/static/img/amplificador-fender.jpg" alt="Producto destacado 3"
                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">

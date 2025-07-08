@@ -161,14 +161,10 @@ function toggleMobileMenu() {
 
 
 function navigateToCategory(category) {
-    console.log('Navegando a categoría:', category);
-
     if (category === 'instrumentos') {
         window.location.href = 'instrumentos.html';
-        alert('Navegando a Instrumentos');
     } else if (category === 'accesorios') {
         window.location.href = 'accesorios.html';
-        alert('Navegando a Accesorios y Audio');
     }
 }
 
