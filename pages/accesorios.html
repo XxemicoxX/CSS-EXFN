@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesorios - Harmony Music Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2d3748',
+                        'slate-warm': '#4a5568',
+                        'cream': '#f7fafc',
+                        'muted-gold': '#d69e2e',
+                        'soft-brown': '#8b7355'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-charcoal text-cream shadow-lg">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-muted-gold">🎵 Harmony Music</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="/pages/index.html"
+                    class="text-cream hover:text-muted-gold transition-colors duration-300 font-medium">Inicio</a>
+                <a href="/pages/instrumentos.html"
+                    class="text-cream hover:text-muted-gold transition-colors duration-300">Instrumentos</a>
+                <a href="/pages/accesorios.html"
+                    class="text-cream border-b-2 border-muted-gold hover:text-muted-gold transition-colors duration-300">Accesorios
+                    y Audio</a>
+                <a href="/pages/nosotros.html"
+                    class="text-cream hover:text-muted-gold transition-colors duration-300">Nosotros</a>
+                <a href="/pages/contacto.html"
+                    class="text-cream hover:text-muted-gold transition-colors duration-300">Contacto</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-3">
+                <button id="btnCarrito" class="bg-muted-gold text-charcoal px-4 py-2 rounded">🛒 Carrito (<span
+                        id="contadorCarrito">0</span>)</button>
+                <button class="bg-red-600 text-white px-4 py-2 rounded">Cerrar Sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Filtros -->
+        <aside class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-charcoal mb-4">Filtrar accesorios:</h2>
+            <div class="mb-4">
+                <h3 class="font-semibold text-slate-warm mb-2">Tipo</h3>
+                <select id="filtroTipoAccesorio" class="w-full border rounded px-3 py-2">
+                    <option value="todos">Todos</option>
+                    <option value="Cuerdas">Cuerdas</option>
+                    <option value="Baquetas">Baquetas</option>
+                    <option value="Soportes">Soportes</option>
+                </select>
+            </div>
+            <div>
+                <h3 class="font-semibold text-slate-warm mb-2">Compatibilidad</h3>
+                <select id="filtroCompatibilidad" class="w-full border rounded px-3 py-2">
+                    <option value="todas">Todas</option>
+                    <option value="Guitarra">Guitarra</option>
+                    <option value="Batería">Batería</option>
+                    <option value="Teclado">Teclado</option>
+                </select>
+            </div>
+        </aside>
+
+        <!-- Accesorios -->
+        <section id="accesorios" class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Tarjeta 1 -->
+            <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 accesorio-item" data-tipo="Cuerdas"
+                data-compatibilidad="Guitarra">
+                <img src="/static/img/Juego de Cuerdas para Guitarra.webp" alt="Cuerdas Guitarra" class="w-full h-48 object-cover rounded">
+                <h3 class="mt-4 font-bold text-charcoal">Juego de Cuerdas para Guitarra</h3>
+                <p class="text-sm text-gray-600">Cuerdas - Guitarra</p>
+                <p class="text-muted-gold font-bold mt-2">$15.99</p>
+                <button
+                    class="btn-agregar-accesorio w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
+                    data-id="accesorio1" data-nombre="Cuerdas para Guitarra" data-precio="15.99"
+                    data-imagen="/static/img/Juego de Cuerdas para Guitarra.webp">
+                    Agregar al Carrito
+                </button>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 accesorio-item" data-tipo="Baquetas"
+                data-compatibilidad="Batería">
+                <img src="/static/img/Par de Baquetas Vic Firth.png" alt="Baquetas" class="w-full h-48 object-cover rounded">
+                <h3 class="mt-4 font-bold text-charcoal">Par de Baquetas Vic Firth</h3>
+                <p class="text-sm text-gray-600">Baquetas - Batería</p>
+                <p class="text-muted-gold font-bold mt-2">$9.99</p>
+                <button
+                    class="btn-agregar-accesorio w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
+                    data-id="accesorio2" data-nombre="Baquetas Vic Firth" data-precio="9.99" data-imagen="/static/img/Par de Baquetas Vic Firth.png">
+                    Agregar al Carrito
+                </button>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 accesorio-item" data-tipo="Soportes"
+                data-compatibilidad="Teclado">
+                <img src="/static/img/Soporte para Teclado Ajustable.jpg" alt="Soporte Teclado" class="w-full h-48 object-cover rounded">
+                <h3 class="mt-4 font-bold text-charcoal">Soporte para Teclado Ajustable</h3>
+                <p class="text-sm text-gray-600">Soporte - Teclado</p>
+                <p class="text-muted-gold font-bold mt-2">$29.99</p>
+                <button
+                    class="btn-agregar-accesorio w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
+                    data-id="accesorio3" data-nombre="Soporte para Teclado" data-precio="29.99"
+                    data-imagen="/static/img/Soporte para Teclado Ajustable.jpg">
+                    Agregar al Carrito
+                </button>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 accesorio-item" data-tipo="Accesorio"
+                data-compatibilidad="Guitarra">
+                <img src="/static/img/Afinador Digital Clip.webp" alt="Afinador" class="w-full h-48 object-cover rounded">
+                <h3 class="mt-4 font-bold text-charcoal">Afinador Digital Clip</h3>
+                <p class="text-sm text-gray-600">Accesorio - Guitarra</p>
+                <p class="text-muted-gold font-bold mt-2">$12.50</p>
+                <button
+                    class="btn-agregar-accesorio w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
+                    data-id="accesorio4" data-nombre="Afinador Clip" data-precio="12.50" data-imagen="/static/img/Afinador Digital Clip.webp">
+                    Agregar al Carrito
+                </button>
+            </div>
+
+            <!-- Tarjeta 5 -->
+            <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 accesorio-item" data-tipo="Accesorio"
+                data-compatibilidad="Teclado">
+                <img src="/static/img/Pedal de Sostenido Universal.jpg" alt="Pedal" class="w-full h-48 object-cover rounded">
+                <h3 class="mt-4 font-bold text-charcoal">Pedal de Sostenido Universal</h3>
+                <p class="text-sm text-gray-600">Accesorio - Teclado</p>
+                <p class="text-muted-gold font-bold mt-2">$22.00</p>
+                <button
+                    class="btn-agregar-accesorio w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
+                    data-id="accesorio5" data-nombre="Pedal Universal" data-precio="22.00" data-imagen="/static/img/Pedal de Sostenido Universal.jpg">
+                    Agregar al Carrito
+                </button>
+            </div>
+
+            <!-- Tarjeta 6 -->
+            <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 accesorio-item" data-tipo="Soportes"
+                data-compatibilidad="Guitarra">
+                <img src="/static/img/Soporte de Guitarra Plegable.jpg" alt="Soporte Guitarra" class="w-full h-48 object-cover rounded">
+                <h3 class="mt-4 font-bold text-charcoal">Soporte de Guitarra Plegable</h3>
+                <p class="text-sm text-gray-600">Soporte - Guitarra</p>
+                <p class="text-muted-gold font-bold mt-2">$18.75</p>
+                <button
+                    class="btn-agregar-accesorio w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
+                    data-id="accesorio6" data-nombre="Soporte Guitarra" data-precio="18.75"
+                    data-imagen="/static/img/Soporte de Guitarra Plegable.jpg">
+                    Agregar al Carrito
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Modal de carrito -->
+    <div id="modalCarrito"
+        class="fixed top-0 right-0 w-full md:w-96 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+        <div class="p-4 border-b flex justify-between items-center">
+            <h2 class="text-lg font-bold text-charcoal">🛒 Carrito de Compras</h2>
+            <button id="cerrarCarrito" class="text-red-600 font-bold text-xl">×</button>
+        </div>
+        <div id="contenidoCarrito" class="p-4 space-y-4">
+            <!-- Productos agregados aparecerán aquí -->
+        </div>
+        <div class="p-4 border-t text-right">
+
+            <button id="btnFinalizar"
+                class="bg-muted-gold text-charcoal px-4 py-2 rounded hover:bg-yellow-500 transition">Finalizar
+                Pedido</button>
+        </div>
+    </div>
+    <!-- Modal de Finalización -->
+    <div id="modalGracias" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-md w-full">
+            <div class="text-green-500 text-5xl mb-4">✅</div>
+            <h2 class="text-2xl font-bold text-charcoal mb-2">¡Gracias por su compra!</h2>
+            <p class="text-gray-600">Esperamos que disfrute sus productos musicales 🎵</p>
+            <button id="cerrarGracias"
+                class="mt-6 bg-muted-gold text-charcoal px-4 py-2 rounded hover:bg-yellow-500 transition">Cerrar</button>
+        </div>
+    </div>
+    <!-- Overlay para el modal -->
+    <div id="overlayCarrito" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-10 mt-20">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-muted-gold font-bold text-lg">Harmony Music Store</p>
+            <p class="text-sm mt-2">&copy; 2025 Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- JS para filtros -->
+    <script src="/static/js/accesorios.js"></script>
+</body>
+
+</html>
