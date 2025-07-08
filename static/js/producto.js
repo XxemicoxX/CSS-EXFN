@@ -80,9 +80,11 @@ document.addEventListener('click', function (e) {
 function actualizarCarritoUI() {
     contenidoCarrito.innerHTML = '';
     let totalItems = 0;
+    let totalPrecio = 0;
 
     carrito.forEach(p => {
         totalItems += p.cantidad;
+        totalPrecio += p.precio * p.cantidad;
 
         const item = document.createElement('div');
         item.classList.add('flex', 'items-center', 'gap-4', 'border-b', 'pb-2');
@@ -99,6 +101,10 @@ function actualizarCarritoUI() {
     });
 
     contadorCarrito.textContent = totalItems;
+
+    // Mostrar total
+    const totalContenedor = document.getElementById('totalCarrito');
+    totalContenedor.textContent = `Total: S/. ${totalPrecio.toFixed(2)}`;
 }
 
 
