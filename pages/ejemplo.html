@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="productos" class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Fila 1 -->
+            <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                <img src="product-guitar.jpg" alt="Guitarra" class="w-full h-48 object-cover rounded">
+                <h3 class="mt-4 font-bold text-charcoal">Guitarra Fender Stratocaster</h3>
+                <p class="text-sm text-gray-600">Eléctrica - Fender</p>
+                <p class="text-muted-gold font-bold mt-2">$499.99</p>
+                <button class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
+                    data-id="fenderElectrica" data-nombre="Guitarra Fender Stratocaster" data-precio="499.99"
+                    data-imagen="product-guitar.jpg">
+                    Agregar al Carrito
+                </button>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-piano.jpg" alt="Teclado" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Teclado Yamaha PSR-E373</h3>
+                    <p class="text-sm text-gray-600">Digital - Yamaha</p>
+                    <p class="text-muted-gold font-bold mt-2">$299.99</p>
+                    <button
+                        class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
+                        data-id="teclaYamaha" data-nombre="Guitarra Fender Stratocaster" data-precio="499.99"
+                        data-imagen="product-guitar.jpg">
+                        Agregar al Carrito
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-drums.jpg" alt="Batería" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Batería Acústica Pearl Roadshow</h3>
+                    <p class="text-sm text-gray-600">Acústico - Pearl</p>
+                    <p class="text-muted-gold font-bold mt-2">$699.99</p>
+                    <button
+                        class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
+                        data-id="acusticoPearl" data-nombre="Guitarra Fender Stratocaster" data-precio="499.99"
+                        data-imagen="product-guitar.jpg">
+                        Agregar al Carrito
+                    </button>
+                </div>
+
+                <!-- Fila 2 -->
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-violin.jpg" alt="Violín" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Violín Cecilio CVN-300</h3>
+                    <p class="text-sm text-gray-600">Acústico - Cecilio</p>
+                    <p class="text-muted-gold font-bold mt-2">$149.99</p>
+                    <button
+                        class="btn-agregar-carrito w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm"
+                        data-id="violinCecilio" data-nombre="Guitarra Fender Stratocaster" data-precio="499.99"
+                        data-imagen="product-guitar.jpg">
+                        Agregar al Carrito
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-trumpet.jpg" alt="Trompeta" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Trompeta Bach TR300H2</h3>
+                    <p class="text-sm text-gray-600">Viento - Bach</p>
+                    <p class="text-muted-gold font-bold mt-2">$349.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-bass.jpg" alt="Bajo" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Bajo Eléctrico Ibanez GSR200</h3>
+                    <p class="text-sm text-gray-600">Eléctrico - Ibanez</p>
+                    <p class="text-muted-gold font-bold mt-2">$229.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <!-- Fila 3 -->
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-sax.jpg" alt="Saxofón" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Saxofón Alto Jean Paul AS-400</h3>
+                    <p class="text-sm text-gray-600">Viento - Jean Paul</p>
+                    <p class="text-muted-gold font-bold mt-2">$499.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-digitaldrum.jpg" alt="Batería Digital" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Batería Digital Alesis Nitro Mesh</h3>
+                    <p class="text-sm text-gray-600">Digital - Alesis</p>
+                    <p class="text-muted-gold font-bold mt-2">$379.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-uprightpiano.jpg" alt="Piano Vertical" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Piano Vertical Kawai K-200</h3>
+                    <p class="text-sm text-gray-600">Acústico - Kawai</p>
+                    <p class="text-muted-gold font-bold mt-2">$2,999.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+                <!-- Fila 4 -->
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-violin.jpg" alt="Violín" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Violín Cecilio CVN-300</h3>
+                    <p class="text-sm text-gray-600">Acústico - Cecilio</p>
+                    <p class="text-muted-gold font-bold mt-2">$149.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-trumpet.jpg" alt="Trompeta" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Trompeta Bach TR300H2</h3>
+                    <p class="text-sm text-gray-600">Viento - Bach</p>
+                    <p class="text-muted-gold font-bold mt-2">$349.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-bass.jpg" alt="Bajo" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Bajo Eléctrico Ibanez GSR200</h3>
+                    <p class="text-sm text-gray-600">Eléctrico - Ibanez</p>
+                    <p class="text-muted-gold font-bold mt-2">$229.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+                <!-- Fila 5 -->
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-violin.jpg" alt="Violín" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Violín Cecilio CVN-300</h3>
+                    <p class="text-sm text-gray-600">Acústico - Cecilio</p>
+                    <p class="text-muted-gold font-bold mt-2">$149.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-trumpet.jpg" alt="Trompeta" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Trompeta Bach TR300H2</h3>
+                    <p class="text-sm text-gray-600">Viento - Bach</p>
+                    <p class="text-muted-gold font-bold mt-2">$349.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-bass.jpg" alt="Bajo" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Bajo Eléctrico Ibanez GSR200</h3>
+                    <p class="text-sm text-gray-600">Eléctrico - Ibanez</p>
+                    <p class="text-muted-gold font-bold mt-2">$229.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+                <!-- Fila 6 -->
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-violin.jpg" alt="Violín" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Violín Cecilio CVN-300</h3>
+                    <p class="text-sm text-gray-600">Acústico - Cecilio</p>
+                    <p class="text-muted-gold font-bold mt-2">$149.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-trumpet.jpg" alt="Trompeta" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Trompeta Bach TR300H2</h3>
+                    <p class="text-sm text-gray-600">Viento - Bach</p>
+                    <p class="text-muted-gold font-bold mt-2">$349.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-bass.jpg" alt="Bajo" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Bajo Eléctrico Ibanez GSR200</h3>
+                    <p class="text-sm text-gray-600">Eléctrico - Ibanez</p>
+                    <p class="text-muted-gold font-bold mt-2">$229.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+                <!-- Fila 7 -->
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-violin.jpg" alt="Violín" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Violín Cecilio CVN-300</h3>
+                    <p class="text-sm text-gray-600">Acústico - Cecilio</p>
+                    <p class="text-muted-gold font-bold mt-2">$149.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-trumpet.jpg" alt="Trompeta" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Trompeta Bach TR300H2</h3>
+                    <p class="text-sm text-gray-600">Viento - Bach</p>
+                    <p class="text-muted-gold font-bold mt-2">$349.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-bass.jpg" alt="Bajo" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Bajo Eléctrico Ibanez GSR200</h3>
+                    <p class="text-sm text-gray-600">Eléctrico - Ibanez</p>
+                    <p class="text-muted-gold font-bold mt-2">$229.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+                <!-- Fila 8 -->
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-violin.jpg" alt="Violín" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Violín Cecilio CVN-300</h3>
+                    <p class="text-sm text-gray-600">Acústico - Cecilio</p>
+                    <p class="text-muted-gold font-bold mt-2">$149.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-trumpet.jpg" alt="Trompeta" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Trompeta Bach TR300H2</h3>
+                    <p class="text-sm text-gray-600">Viento - Bach</p>
+                    <p class="text-muted-gold font-bold mt-2">$349.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-bass.jpg" alt="Bajo" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Bajo Eléctrico Ibanez GSR200</h3>
+                    <p class="text-sm text-gray-600">Eléctrico - Ibanez</p>
+                    <p class="text-muted-gold font-bold mt-2">$229.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+                <!-- Fila 9 -->
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-violin.jpg" alt="Violín" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Violín Cecilio CVN-300</h3>
+                    <p class="text-sm text-gray-600">Acústico - Cecilio</p>
+                    <p class="text-muted-gold font-bold mt-2">$149.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-trumpet.jpg" alt="Trompeta" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Trompeta Bach TR300H2</h3>
+                    <p class="text-sm text-gray-600">Viento - Bach</p>
+                    <p class="text-muted-gold font-bold mt-2">$349.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-bass.jpg" alt="Bajo" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Bajo Eléctrico Ibanez GSR200</h3>
+                    <p class="text-sm text-gray-600">Eléctrico - Ibanez</p>
+                    <p class="text-muted-gold font-bold mt-2">$229.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+                <!-- Fila 10 -->
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-violin.jpg" alt="Violín" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Violín Cecilio CVN-300</h3>
+                    <p class="text-sm text-gray-600">Acústico - Cecilio</p>
+                    <p class="text-muted-gold font-bold mt-2">$149.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-trumpet.jpg" alt="Trompeta" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Trompeta Bach TR300H2</h3>
+                    <p class="text-sm text-gray-600">Viento - Bach</p>
+                    <p class="text-muted-gold font-bold mt-2">$349.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-bass.jpg" alt="Bajo" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Bajo Eléctrico Ibanez GSR200</h3>
+                    <p class="text-sm text-gray-600">Eléctrico - Ibanez</p>
+                    <p class="text-muted-gold font-bold mt-2">$229.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+                <!-- Fila 11 -->
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-violin.jpg" alt="Violín" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Violín Cecilio CVN-300</h3>
+                    <p class="text-sm text-gray-600">Acústico - Cecilio</p>
+                    <p class="text-muted-gold font-bold mt-2">$149.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-trumpet.jpg" alt="Trompeta" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Trompeta Bach TR300H2</h3>
+                    <p class="text-sm text-gray-600">Viento - Bach</p>
+                    <p class="text-muted-gold font-bold mt-2">$349.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-bass.jpg" alt="Bajo" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Bajo Eléctrico Ibanez GSR200</h3>
+                    <p class="text-sm text-gray-600">Eléctrico - Ibanez</p>
+                    <p class="text-muted-gold font-bold mt-2">$229.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+                <!-- Fila 12 -->
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-violin.jpg" alt="Violín" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Violín Cecilio CVN-300</h3>
+                    <p class="text-sm text-gray-600">Acústico - Cecilio</p>
+                    <p class="text-muted-gold font-bold mt-2">$149.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-trumpet.jpg" alt="Trompeta" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Trompeta Bach TR300H2</h3>
+                    <p class="text-sm text-gray-600">Viento - Bach</p>
+                    <p class="text-muted-gold font-bold mt-2">$349.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+                    <img src="product-bass.jpg" alt="Bajo" class="w-full h-48 object-cover rounded">
+                    <h3 class="mt-4 font-bold text-charcoal">Bajo Eléctrico Ibanez GSR200</h3>
+                    <p class="text-sm text-gray-600">Eléctrico - Ibanez</p>
+                    <p class="text-muted-gold font-bold mt-2">$229.99</p>
+                    <button class="w-full mt-3 bg-charcoal text-cream py-2 rounded hover:bg-slate-warm">Agregar al
+                        Carrito</button>
+                </div>
+        </section>
+</body>
+</html>
